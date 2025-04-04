@@ -198,10 +198,11 @@ int main() {
         char buffer[16] = {0};
         int recived = recv(c, buffer, sizeof(buffer), 0);
         buffer[recived] = 0;
+        if(strlen(buffer) == 0) continue;
+        printf("%s\n", buffer);
         if(strcmp(buffer, "exit") == 0) {
             break;
         }
-        printf("Message from client: %s", buffer);
     }
 
     close(c);

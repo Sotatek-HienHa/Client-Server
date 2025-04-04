@@ -121,6 +121,10 @@ int main() {
         if (!fgets(input, sizeof(input), stdin)) {
             break;
         }
+
+        input[strlen(input) - 1] = 0;
+        if(strlen(input) == 0) continue;
+
         send(s, input, strlen(input), 0);
 
         if (strcmp(input, "exit") == 0) {
